@@ -1,0 +1,17 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/AI_project/superimage/model/sendPhoto3.py", line 97, in <module>
+    main()
+  File "/home/AI_project/superimage/model/sendPhoto3.py", line 88, in main
+    application = Application.builder().token(TOKEN).build()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_applicationbuilder.py", line 310, in build
+    bot: Bot = self._build_ext_bot()  # build a bot
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_applicationbuilder.py", line 280, in _build_ext_bot
+    request=self._build_request(get_updates=False),
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_applicationbuilder.py", line 260, in _build_request
+    return HTTPXRequest(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_httpxrequest.py", line 189, in __init__
+    self._client = self._build_client()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_httpxrequest.py", line 224, in _build_client
+    return httpx.AsyncClient(**self._client_kwargs)  # type: ignore[arg-type]
+TypeError: AsyncClient.__init__() got an unexpected keyword argument 'proxy'
