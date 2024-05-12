@@ -6,9 +6,11 @@ import requests
 from io import BytesIO
 from sdModel import sdModel
 import io
+import os
 import base64
 from addWaterMask import addWM
 from StableDiffusionClient import StableDiffusionClient
+
 
 # TOKEN = '6926867064:AAEFCbBi3mw6Oip_shmNJXLtApDlujz8c2A'
 TOKEN = '6425101277:AAGQ7w2W74-ks1PV1BQ_-CXi5IS9On_QQHo'
@@ -22,18 +24,7 @@ async def start(update: Update, context: CallbackContext):
 # 处理文本消息，生成图片
 async def generate_images(update: Update, context: CallbackContext):
     text = update.message.text
-    # 这里是调用API的伪代码，请替换为实际的API调用
-    # response = requests.post(API_URL, json={'text': text})
-    # if 200 == 200:
-    #     # images_urls = response.json().get('images')
-    #     images_urls =['https://www.gstatic.com/images/branding/product/2x/apps_script_48dp.png',
-    #                   'https://www.gstatic.com/images/branding/product/2x/apps_script_48dp.png',
-    #                   'https://www.gstatic.com/images/branding/product/2x/apps_script_48dp.png',
-    #                   'https://www.gstatic.com/images/branding/product/2x/apps_script_48dp.png']
-        # if images_urls and len(images_urls) == 4:
-                    # 发送图片
-                    # media_group = [InputMediaPhoto(media=url) for url in images_urls]
-    
+
     images =[]
     urls = [
         "http://127.0.0.1:1080/sdapi/v1/txt2img",
@@ -58,14 +49,17 @@ async def generate_images(update: Update, context: CallbackContext):
         new_im.paste(images[2], (0,height))
         new_im.paste(images[3], (width,height))
         # 保存或显示这个新图片
-        imPath = '/home/AI_project/JupyterData/photos/'+str(update.effective_chat.id)+'combined.jpg'
+        current_dir = os.getcwd()
+        parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
+        imPath = parent_dir+'/photos/'+str(update.effective_chat.id)+'combined.jpg'
         new_im.save(imPath)
 
         await context.bot.send_photo(update.effective_chat.id,open(imPath,'rb'))
-        image1Path='/home/AI_project/JupyterData/photos/'+str(update.effective_chat.id)+'image1.jpg'
-        image2Path='/home/AI_project/JupyterData/photos/'+str(update.effective_chat.id)+'image2.jpg'
-        image3Path='/home/AI_project/JupyterData/photos/'+str(update.effective_chat.id)+'image3.jpg'
-        image4Path='/home/AI_project/JupyterData/photos/'+str(update.effective_chat.id)+'image4.jpg'
+
+        image1Path=parent_dir+'/photos/'+str(update.effective_chat.id)+'image1.jpg'
+        image2Path=parent_dir+'/photos/'+str(update.effective_chat.id)+'image2.jpg'
+        image3Path=parent_dir+'/photos/'+str(update.effective_chat.id)+'image3.jpg'
+        image4Path=parent_dir+'/photos/'+str(update.effective_chat.id)+'image4.jpg'
         images[0].save(image1Path)
         images[1].save(image2Path)
         images[2].save(image3Path)
@@ -85,9 +79,10 @@ async def button_callback(update: Update, context: CallbackContext) -> None:
     # 这里可以根据callback_data处理用户的选择
     selected_image_index = query.data
     await query.edit_message_text(f'You selected Image {int(selected_image_index)+1}')
-    selectImPath ='/home/AI_project/JupyterData/photos/'+str(update.effective_chat.id)+'image' +str(int(selected_image_index)+1)+'.jpg'
+    current_dir = os.getcwd()
+    parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
+    selectImPath =parent_dir+'/photos/'+str(update.effective_chat.id)+'image' +str(int(selected_image_index)+1)+'.jpg'
     await context.bot.send_photo(update.effective_chat.id,open(selectImPath,'rb'))
-
 
 def main():
     application = Application.builder().token(TOKEN).build()

@@ -1,8 +1,11 @@
 from PIL import Image, ImageDraw, ImageFont
+import os
 
 class addWaterMask:
     def __init__(self):
-        self.font = ImageFont.truetype("/home/AI_project/superimage/font/KaTeX_Main-BoldItalic-70ee1f64.ttf",30)  # 选择字体和大小
+        current_dir = os.getcwd()
+        parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
+        self.font = ImageFont.truetype(parent_dir+"/font/KaTeX_Main-BoldItalic-70ee1f64.ttf",30)  # 选择字体和大小
         # self.font= ImageFont.load_default()
     def process(self, img, text):
         # img = Image.open(img_path)

@@ -9,6 +9,7 @@ import json
 from io import BytesIO
 from model.sdModel import sdModel
 import io
+import os
 import base64
 from model.addWaterMask import addWM
 from model.StableDiffusionClient import StableDiffusionClient
@@ -54,9 +55,19 @@ def post_task(param):
         # "http://127.0.0.1:1081/sdapi/v1/txt2img"
         ]
         client = StableDiffusionClient(urls)
+        current_dir = os.getcwd()
         images = client.fetch_images(text)
+        # image1Path=current_dir+'/photos/'+'image1.jpg'
+
         print("=================flag1============",images,len(images)) 
-        return images
+
+        images[0].save(current_dir+'/photos/'+'image1.jpg')
+        images[1].save(current_dir+'/photos/'+'image2.jpg')
+        status=0
+        if len(images)==2:
+             status = 1
+        
+        return status
 
 def get_host_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
