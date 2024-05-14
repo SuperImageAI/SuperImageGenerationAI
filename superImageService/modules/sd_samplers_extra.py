@@ -2,19 +2,6 @@ import torch
 import tqdm
 import k_diffusion.sampling
 
-@torch.no_grad()
-def sample_lcm(model, x, sigmas,extra_args=None, callback=None, disable=None, noise_sampler=None):
-    extra_args = {} if extra_args is None else extra_args
-    noise_sampler = k_diffusion.sampling.default_noise_sampler(x) if noise_sampler is None else noise_sampler
-    s_in = x.new_ones([x.shape[0]])
-    for i in tqdm.auto.trange(len(sigmas) - 1, disable=disable):
-        denoised = model(x, sigmas[i] * s_in, **extra_args)
-        if callback is not None:
-            callback({'x': x,'i': i,'sigma': sigmas[i],'sigma_hat': sigmas[i],'denoised': denoised})
-        x= denoised
-        if sigmas[i + 1] > 0:
-            x += sigmas[i + 1] * noise_sampler(sigmas[i],sigmas[i + 1])
-    return x
 
 @torch.no_grad()
 def restart_sampler(model, x, sigmas, extra_args=None, callback=None, disable=None, s_noise=1., restart_list=None):
@@ -73,7 +60,7 @@ def restart_sampler(model, x, sigmas, extra_args=None, callback=None, disable=No
                 sigma_restart = get_sigmas_karras(restart_steps, sigmas[min_idx].item(), sigmas[max_idx].item(), device=sigmas.device)[:-1]
                 while restart_times > 0:
                     restart_times -= 1
-                    step_list.extend([(old_sigma, new_sigma) for (old_sigma, new_sigma) in zip(sigma_restart[:-1], sigma_restart[1:])])
+                    step_list.extend(zip(sigma_restart[:-1], sigma_restart[1:]))
 
     last_sigma = None
     for old_sigma, new_sigma in tqdm.tqdm(step_list, disable=disable):

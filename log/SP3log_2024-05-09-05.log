@@ -1,0 +1,170 @@
+nohup: ignoring input
+Error while getting Updates: httpx.ReadError: 
+No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_transports/default.py", line 373, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 216, in handle_async_request
+    raise exc from None
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/connection_pool.py", line 196, in handle_async_request
+    response = await connection.handle_async_request(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/http11.py", line 143, in handle_async_request
+    raise exc
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/http11.py", line 113, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/http11.py", line 186, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_async/http11.py", line 224, in _receive_event
+    data = await self._network_stream.read(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_httpxrequest.py", line 276, in do_request
+    res = await self._client.request(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_client.py", line 1574, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_client.py", line 1661, in send
+    response = await self._send_handling_auth(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_client.py", line 1689, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_client.py", line 1726, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_client.py", line 1763, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_transports/default.py", line 372, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 742, in _network_loop_retry
+    if not await do_action():
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 736, in do_action
+    return action_cb_task.result()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 387, in polling_action_cb
+    raise exc
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 376, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 541, in decorator
+    result = await func(self, *args, **kwargs)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 4177, in get_updates
+    await self._post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 629, in _post
+    return await self._do_post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 657, in _do_post
+    return await request.post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_httpxrequest.py", line 300, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ReadError: 
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D48A62F0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B64A0>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B60E0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B6860>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D48A62F0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B64A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B60E0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B6860>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D48A62F0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B64A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B60E0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B6860>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C250>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C310>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495CB80>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495E200>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C250>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C310>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495CB80>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495E200>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C250>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C310>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495CB80>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495E200>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C970>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C940>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C790>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496CE50>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C970>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C940>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C790>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496CE50>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C970>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C940>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C790>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496CE50>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496DAE0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496EA10>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C2B0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495D690>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496DAE0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496EA10>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C2B0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495D690>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496DAE0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496EA10>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C2B0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495D690>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903370>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D49015A0>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4902BC0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4901F60>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903370>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D49015A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4902BC0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4901F60>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903370>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D49015A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4902BC0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4901F60>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4902AD0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903310>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903700>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D49024A0>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4902AD0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903310>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903700>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D49024A0>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4902AD0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903310>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D4903700>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D49024A0>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496D4E0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C160>] 2
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C910>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495DF00>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496D4E0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C160>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C910>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495DF00>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496D4E0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D496C160>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495C910>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D495DF00>] 4
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B6560>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD0D52B5FF0>] 2
+========flag2============== Error while getting Updates: Bad Gateway
+No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 742, in _network_loop_retry
+    if not await do_action():
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 736, in do_action
+    return action_cb_task.result()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 387, in polling_action_cb
+    raise exc
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 376, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 541, in decorator
+    result = await func(self, *args, **kwargs)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 4177, in get_updates
+    await self._post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 629, in _post
+    return await self._do_post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 657, in _do_post
+    return await request.post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 383, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
+Error while getting Updates: Bad Gateway
+No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 742, in _network_loop_retry
+    if not await do_action():
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 736, in do_action
+    return action_cb_task.result()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 387, in polling_action_cb
+    raise exc
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_updater.py", line 376, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 541, in decorator
+    result = await func(self, *args, **kwargs)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 4177, in get_updates
+    await self._post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 629, in _post
+    return await self._do_post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/_bot.py", line 657, in _do_post
+    return await request.post(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 383, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
