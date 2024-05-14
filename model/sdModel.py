@@ -1,10 +1,19 @@
 import json
 import requests as rt
-
+import random
+from datetime import datetime
 class sdModels(object):
     def __ini__(self):
         pass
 
+    @classmethod
+    def generate_time_related_random_string(length=8):
+        # 使用当前时间作为种子
+        now = datetime.now().timestamp()
+        random.seed(now)
+        # 字符集包括小写字母和数字
+        char_set = 'abcdefghijklmnopqrstuvwxyz0123456789'
+        return ''.join(random.choices(char_set, k=length))
     @classmethod
     def sdImage(cls,mtext):
         payload = {
@@ -53,12 +62,12 @@ class sdModels(object):
             # "script_name": "string"
             # "send_images": True,
             # "save_images": True,
-            "alwayson_scripts": { "ADetailer": {
-                      "args": [{ "ad_model": "hand_yolov8n.pt"},
-                                    { "ad_model": "face_yolov8n.pt" }
-                                 ]
-                                  }
-            }
+            # "alwayson_scripts": { "ADetailer": {
+            #           "args": [{ "ad_model": "hand_yolov8n.pt"},
+            #                         { "ad_model": "face_yolov8n.pt" }
+            #                      ]
+                                #   }
+            # }
             }
 
         

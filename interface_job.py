@@ -11,9 +11,13 @@ from model.sdModel import sdModel
 import io
 import os
 import base64
+import json
+import requests as rt
+import io
+import base64
+from model.sdModel import sdModel
+from PIL import Image, ImageDraw, ImageFont
 from model.addWaterMask import addWM
-from model.StableDiffusionClient import StableDiffusionClient
-
    
 # current_path = abspath(dirname(__file__))
 #
@@ -33,16 +37,18 @@ def post():
     print(param)
     print("post1有执行")
     r = post_task(param)
-
     print(r)
-
-    res={ "code":0,
-        "count": 0,
-        "data": 'true',
-        "msg": "success",
-        "data":r
-    }
-
+    if len(r)>0:
+         
+        res={ "code":0,
+            "status": "success",
+            "imageUrl":r
+        }
+    else:
+        res={ "code":-1,
+            "status": "failed",
+            "imageUrl":r
+        } 
     return json.dumps(res, ensure_ascii=False)
 
 def post_task(param):
@@ -50,24 +56,24 @@ def post_task(param):
         print("run函数有执行")
         print(param)
         text = param['prompt']
-        urls = [
-        "http://127.0.0.1:1080/sdapi/v1/txt2img"
-        # "http://127.0.0.1:1081/sdapi/v1/txt2img"
-        ]
-        client = StableDiffusionClient(urls)
-        current_dir = os.getcwd()
-        images = client.fetch_images(text)
-        # image1Path=current_dir+'/photos/'+'image1.jpg'
+        test = addWM()
+        imageUrl =''
+        try:
+            r = sdModel.sdImage(text)
+            image = Image.open(io.BytesIO(base64.b64decode(r['images'][0])))
+        # image.resize((10,10))
+            print("=====flag1=====")
+            current_dir = os.getcwd()
+            imName= sdModel.generate_time_related_random_string(16)
+            imPath = current_dir+'/photos/'+imName+'.png'
+            image.save(imPath)
+            water_mask = "SuperImageAI"
+            image = test.process(imPath, water_mask)
+            image.save(imPath)
+        except:
+             print("生成图片失败!")
 
-        print("=================flag1============",images,len(images)) 
-
-        images[0].save(current_dir+'/photos/'+'image1.jpg')
-        images[1].save(current_dir+'/photos/'+'image2.jpg')
-        status=0
-        if len(images)==2:
-             status = 1
-        
-        return status
+        return  imageUrl
 
 def get_host_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -79,7 +85,7 @@ def get_host_ip():
 
 if __name__ == "__main__":
     # 启动http api
-    app.run(debug=False, host=get_host_ip(), port=10429)
+    app.run(debug=False, host=get_host_ip(), port=1088)
 
 
 
