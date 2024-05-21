@@ -26,7 +26,7 @@ from model.addWaterMask import addWM
 # sys.path.append(root_path)
 #
 app = Flask(__name__)
-model_name = '/models/superImage/'
+model_name = '/models'
 
 @app.route(model_name, methods=['POST'])
 
@@ -85,7 +85,7 @@ def get_host_ip():
 
 if __name__ == "__main__":
     # 启动http api
-    app.run(debug=False, host=get_host_ip(), port=1088)
+    app.run(debug=False, host='0.0.0.0', port=1088)
 
 
 
