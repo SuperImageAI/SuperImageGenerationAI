@@ -56,7 +56,7 @@ def post_task(param):
         print("run函数有执行")
         print(param)
         text = param['prompt']
-        test = addWM()
+        # test = addWM()
         imageUrl =''
         try:
             r = sdModel.sdImage(text)
@@ -68,7 +68,7 @@ def post_task(param):
             imPath = current_dir+'/photos/'+imName+'.png'
             image.save(imPath)
             water_mask = "SuperImageAI"
-            image = test.process(imPath, water_mask)
+            image = addWM.process(imPath, water_mask)
             image.save(imPath)
         except:
              print("生成图片失败!")
