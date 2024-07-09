@@ -26,7 +26,7 @@ from model.addWaterMask import addWM
 # sys.path.append(root_path)
 #
 app = Flask(__name__)
-model_name = '/models/superImage/'
+model_name = '/models'
 
 @app.route(model_name, methods=['POST'])
 
@@ -57,6 +57,7 @@ def post_task(param):
         print(param)
         text = param['prompt']
         # test = addWM()
+       # test = addWM()
         imageUrl =''
         try:
             r = sdModel.sdImage(text)
@@ -66,10 +67,11 @@ def post_task(param):
             current_dir = os.getcwd()
             imName= sdModel.generate_time_related_random_string(16)
             imPath = current_dir+'/photos/'+imName+'.png'
-            image.save(imPath)
             water_mask = "SuperImageAI"
             image = addWM.process(imPath, water_mask)
+            image = addWM.process(image, water_mask)
             image.save(imPath)
+            imageUrl=imPath
         except:
              print("生成图片失败!")
 
@@ -85,7 +87,7 @@ def get_host_ip():
 
 if __name__ == "__main__":
     # 启动http api
-    app.run(debug=False, host=get_host_ip(), port=1088)
+    app.run(debug=False, host='0.0.0.0', port=1088)
 
 
 

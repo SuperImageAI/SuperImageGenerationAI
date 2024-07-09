@@ -1,0 +1,19 @@
+nohup: ignoring input
+ * Serving Flask app 'interface_job'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://192.168.122.66:1088
+Press CTRL+C to quit
+163.44.1.97 - - [16/May/2024 16:13:27] "POST /models/superImage/ HTTP/1.1" 404 -
+192.46.225.193 - - [16/May/2024 16:17:38] "POST /models/superImage/ HTTP/1.1" 404 -
+192.46.225.193 - - [16/May/2024 16:17:58] "POST /models/superImage/ HTTP/1.1" 404 -
+115.216.0.228 - - [16/May/2024 16:22:52] "POST /models/ HTTP/1.1" 200 -
+115.216.0.228 - - [16/May/2024 16:30:15] "POST /models/ HTTP/1.1" 200 -
+115.216.0.228 - - [16/May/2024 16:30:50] "POST /models/ HTTP/1.1" 200 -
+115.216.0.228 - - [16/May/2024 16:31:20] "POST /models/ HTTP/1.1" 200 -
+115.216.0.228 - - [16/May/2024 16:32:01] "POST /models/ HTTP/1.1" 200 -
+192.168.122.66 - - [18/May/2024 03:07:05] "POST /models HTTP/1.1" 308 -
+192.168.122.66 - - [18/May/2024 03:09:38] "POST /models HTTP/1.1" 308 -
+192.168.122.66 - - [18/May/2024 03:12:12] "POST /models HTTP/1.1" 308 -
+192.168.122.66 - - [18/May/2024 03:13:23] "POST /models/superImage HTTP/1.1" 404 -
+192.168.122.1 - - [18/May/2024 03:15:41] "POST /models HTTP/1.1" 308 -

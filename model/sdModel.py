@@ -7,7 +7,7 @@ class sdModels(object):
         pass
 
     @classmethod
-    def generate_time_related_random_string(length=8):
+    def generate_time_related_random_string(cls,length=8):
         # 使用当前时间作为种子
         now = datetime.now().timestamp()
         random.seed(now)

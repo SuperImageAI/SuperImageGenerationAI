@@ -1,0 +1,15 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/AI_project/ImageGenerationAI/model/sendPhoto3.py", line 10, in <module>
+    from addWaterMask import addWM
+  File "/home/AI_project/ImageGenerationAI/model/addWaterMask.py", line 17, in <module>
+    addWM = addWaterMask()
+  File "/home/AI_project/ImageGenerationAI/model/addWaterMask.py", line 5, in __init__
+    self.font = ImageFont.truetype("/home/AI_project/superimage/font/KaTeX_Main-BoldItalic-70ee1f64.ttf",30)  # 选择字体和大小
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/PIL/ImageFont.py", line 996, in truetype
+    return freetype(font)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/PIL/ImageFont.py", line 993, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/PIL/ImageFont.py", line 248, in __init__
+    self.font = core.getfont(
+OSError: cannot open resource
