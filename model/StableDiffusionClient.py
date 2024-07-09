@@ -3,7 +3,7 @@ import aiohttp
 from PIL import Image
 import io
 import base64
-from model.addWaterMask import addWM
+from addWaterMask import addWM
 class StableDiffusionClient:
     def __init__(self, urls):
         self.urls = urls

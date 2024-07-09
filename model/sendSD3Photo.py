@@ -9,7 +9,7 @@ import io
 import os
 import base64
 from addWaterMask import addWM
-from StableDiffusionClient import StableDiffusionClient
+from SD3Client import SD3Client
 
 
 # TOKEN = '6926867064:AAEFCbBi3mw6Oip_shmNJXLtApDlujz8c2A'
@@ -26,13 +26,14 @@ async def generate_images(update: Update, context: CallbackContext):
     text = update.message.text
 
     images =[]
-    urls = [
-        "http://127.0.0.1:1080/sdapi/v1/txt2img",
-        "http://127.0.0.1:1081/sdapi/v1/txt2img"
+    server_adresses = [
+        "127.0.0.1:8188",
+        "127.0.0.1:8189"
     ]
-    client = StableDiffusionClient(urls)
+    # client_id = str(uuid.uuid4())
+    client = SD3Client(server_adresses)
     images = await client.fetch_images(text)
-    print("=================flag1============",images,len(images))    
+    print("=================flag1============",len(images))    
 
     if len(images) == 4:
     # 确保所有图片大小相同（这里以第一张图片的大小为准）
