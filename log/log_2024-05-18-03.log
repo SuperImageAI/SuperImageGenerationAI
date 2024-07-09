@@ -1,8 +1,0 @@
-nohup: ignoring input
- * Serving Flask app 'interface_job'
- * Debug mode: off
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://192.168.122.66:1088
-Press CTRL+C to quit
-192.168.122.66 - - [18/May/2024 03:57:15] "POST /models HTTP/1.1" 200 -
-192.168.122.66 - - [18/May/2024 04:08:33] "POST /models HTTP/1.1" 200 -
