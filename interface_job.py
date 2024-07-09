@@ -68,7 +68,6 @@ def post_task(param):
             imName= sdModel.generate_time_related_random_string(16)
             imPath = current_dir+'/photos/'+imName+'.png'
             water_mask = "SuperImageAI"
-            image = addWM.process(imPath, water_mask)
             image = addWM.process(image, water_mask)
             image.save(imPath)
             imageUrl=imPath
