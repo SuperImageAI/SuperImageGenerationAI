@@ -1,0 +1,270 @@
+nohup: ignoring input
+ * Serving Flask app 'interface_job'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1088
+ * Running on http://192.168.122.66:1088
+Press CTRL+C to quit
+222.249.113.127 - - [23/May/2024 14:55:00] "POST /models/ HTTP/1.1" 404 -
+203.138.98.244 - - [23/May/2024 14:56:57] "POST /models/ HTTP/1.1" 404 -
+203.138.98.244 - - [23/May/2024 14:57:31] "POST /models HTTP/1.1" 200 -
+222.249.113.127 - - [23/May/2024 14:59:47] "POST /models HTTP/1.1" 200 -
+80.75.212.75 - - [25/May/2024 07:07:43] code 400, message Bad request syntax ('\x05\x01\x00')
+80.75.212.75 - - [25/May/2024 07:07:43] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -
+80.75.212.75 - - [25/May/2024 13:54:46] code 400, message Bad request syntax ('\x05\x01\x00')
+80.75.212.75 - - [25/May/2024 13:54:46] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -
+87.236.176.108 - - [25/May/2024 19:34:25] "GET / HTTP/1.1" 404 -
+80.75.212.75 - - [25/May/2024 20:43:42] code 400, message Bad request syntax ('\x05\x01\x00')
+80.75.212.75 - - [25/May/2024 20:43:42] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -
+162.216.150.252 - - [26/May/2024 01:27:44] "GET / HTTP/1.1" 404 -
+80.75.212.75 - - [26/May/2024 03:24:18] code 400, message Bad request syntax ('\x05\x01\x00')
+80.75.212.75 - - [26/May/2024 03:24:18] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -
+87.236.176.223 - - [27/May/2024 13:53:12] "GET / HTTP/1.1" 404 -
+87.236.176.193 - - [28/May/2024 16:31:08] "GET / HTTP/1.1" 404 -
+162.216.150.218 - - [30/May/2024 07:03:28] "GET / HTTP/1.1" 404 -
+192.168.122.66 - - [30/May/2024 08:25:46] "POST /models HTTP/1.1" 200 -
+87.236.176.202 - - [01/Jun/2024 04:27:53] "GET / HTTP/1.1" 404 -
+147.185.133.80 - - [03/Jun/2024 17:00:30] "GET / HTTP/1.1" 404 -
+87.236.176.152 - - [03/Jun/2024 19:30:14] "GET / HTTP/1.1" 404 -
+147.185.133.86 - - [04/Jun/2024 15:12:45] "GET / HTTP/1.1" 404 -
+147.185.133.253 - - [05/Jun/2024 15:04:14] "GET / HTTP/1.1" 404 -
+162.216.150.93 - - [06/Jun/2024 04:05:23] "GET / HTTP/1.1" 404 -
+147.185.133.234 - - [06/Jun/2024 15:00:46] "GET / HTTP/1.1" 404 -
+35.203.210.180 - - [06/Jun/2024 18:40:55] "GET / HTTP/1.1" 404 -
+185.242.226.38 - - [06/Jun/2024 19:15:24] "GET / HTTP/1.1" 404 -
+87.236.176.167 - - [06/Jun/2024 21:09:55] "GET / HTTP/1.1" 404 -
+35.203.210.254 - - [07/Jun/2024 03:51:20] "GET / HTTP/1.1" 404 -
+35.203.210.103 - - [07/Jun/2024 14:47:15] "GET / HTTP/1.1" 404 -
+35.203.211.252 - - [08/Jun/2024 04:13:58] "GET / HTTP/1.1" 404 -
+35.203.211.127 - - [08/Jun/2024 14:47:49] "GET / HTTP/1.1" 404 -
+35.203.210.41 - - [09/Jun/2024 04:01:53] "GET / HTTP/1.1" 404 -
+87.236.176.241 - - [09/Jun/2024 11:02:08] "GET / HTTP/1.1" 404 -
+35.203.211.113 - - [09/Jun/2024 15:09:06] "GET / HTTP/1.1" 404 -
+147.185.133.66 - - [11/Jun/2024 03:53:26] "GET / HTTP/1.1" 404 -
+147.185.133.42 - - [11/Jun/2024 14:52:55] "GET / HTTP/1.1" 404 -
+35.203.211.72 - - [11/Jun/2024 21:52:03] "GET / HTTP/1.1" 404 -
+147.185.133.215 - - [12/Jun/2024 03:42:16] "GET / HTTP/1.1" 404 -
+147.185.133.15 - - [12/Jun/2024 15:10:03] "GET / HTTP/1.1" 404 -
+87.236.176.104 - - [12/Jun/2024 15:38:50] "GET / HTTP/1.1" 404 -
+162.216.150.112 - - [12/Jun/2024 22:13:52] "GET / HTTP/1.1" 404 -
+147.185.133.196 - - [13/Jun/2024 04:18:43] "GET / HTTP/1.1" 404 -
+147.185.132.137 - - [13/Jun/2024 15:04:24] "GET / HTTP/1.1" 404 -
+147.185.132.104 - - [13/Jun/2024 23:35:12] "GET / HTTP/1.1" 404 -
+35.203.211.17 - - [14/Jun/2024 15:07:51] "GET / HTTP/1.1" 404 -
+35.203.211.61 - - [14/Jun/2024 18:31:42] "GET / HTTP/1.1" 404 -
+35.203.211.32 - - [15/Jun/2024 03:59:51] "GET / HTTP/1.1" 404 -
+87.236.176.117 - - [15/Jun/2024 10:50:01] "GET / HTTP/1.1" 404 -
+147.185.132.107 - - [15/Jun/2024 14:45:44] "GET / HTTP/1.1" 404 -
+147.185.133.125 - - [16/Jun/2024 03:59:10] "GET / HTTP/1.1" 404 -
+35.203.210.15 - - [16/Jun/2024 14:49:20] "GET / HTTP/1.1" 404 -
+192.168.122.66 - - [17/Jun/2024 07:19:17] "POST /models HTTP/1.1" 200 -
+[2024-06-17 07:25:27,578] ERROR in app: Exception on /models [POST]
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/AI_project/ImageGenerationAI/interface_job.py", line 39, in post
+    r = post_task(param)
+  File "/home/AI_project/ImageGenerationAI/interface_job.py", line 58, in post_task
+    text = param['prompt']
+KeyError: 'prompt'
+192.168.122.66 - - [17/Jun/2024 07:25:27] "POST /models HTTP/1.1" 500 -
+[2024-06-17 07:26:05,682] ERROR in app: Exception on /models [POST]
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/AI_project/ImageGenerationAI/interface_job.py", line 39, in post
+    r = post_task(param)
+  File "/home/AI_project/ImageGenerationAI/interface_job.py", line 58, in post_task
+    text = param['prompt']
+KeyError: 'prompt'
+192.168.122.66 - - [17/Jun/2024 07:26:05] "POST /models HTTP/1.1" 500 -
+192.168.122.66 - - [17/Jun/2024 07:27:16] "POST /models HTTP/1.1" 200 -
+192.168.122.66 - - [17/Jun/2024 07:27:38] "POST /models HTTP/1.1" 200 -
+192.168.122.66 - - [17/Jun/2024 09:19:52] "POST /models HTTP/1.1" 200 -
+162.216.150.73 - - [17/Jun/2024 15:22:56] "GET / HTTP/1.1" 404 -
+147.185.133.19 - - [17/Jun/2024 17:45:19] "GET / HTTP/1.1" 404 -
+35.203.210.19 - - [18/Jun/2024 04:13:00] "GET / HTTP/1.1" 404 -
+192.168.122.66 - - [18/Jun/2024 06:23:44] "POST /models HTTP/1.1" 200 -
+147.185.133.157 - - [18/Jun/2024 15:08:18] "GET / HTTP/1.1" 404 -
+185.242.226.38 - - [18/Jun/2024 17:23:48] "GET / HTTP/1.1" 404 -
+87.236.176.25 - - [18/Jun/2024 20:26:25] "GET / HTTP/1.1" 404 -
+147.185.133.242 - - [19/Jun/2024 03:58:21] "GET / HTTP/1.1" 404 -
+167.94.138.60 - - [19/Jun/2024 06:07:07] code 400, message Bad request version ('¢\x06èØë\x17ç\x881ïTù¯\x8e\x89Ü')
+167.94.138.60 - - [19/Jun/2024 06:07:07] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Ñ0A­¤a/ºê\x1b7z\x81%â\x91\x8fÐ\x8eþ\x82\x1d­$>&û\x8fV§äB ¢\x06èØë\x17ç\x881ïTù¯\x8e\x89Ü" HTTPStatus.BAD_REQUEST -
+167.94.138.60 - - [19/Jun/2024 06:07:12] "GET / HTTP/1.1" 404 -
+167.94.138.60 - - [19/Jun/2024 06:07:20] "GET / HTTP/1.1" 404 -
+167.94.138.60 - - [19/Jun/2024 06:07:20] code 505, message Invalid HTTP version (2.0)
+167.94.138.60 - - [19/Jun/2024 06:07:20] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+192.168.122.66 - - [19/Jun/2024 07:05:45] "POST /models HTTP/1.1" 200 -
+192.168.122.66 - - [19/Jun/2024 07:06:03] "POST /models HTTP/1.1" 200 -
+192.168.122.66 - - [19/Jun/2024 07:18:46] "POST /models HTTP/1.1" 200 -
+192.168.122.66 - - [19/Jun/2024 07:19:03] "POST /models HTTP/1.1" 200 -
+162.216.150.130 - - [19/Jun/2024 15:14:34] "GET / HTTP/1.1" 404 -
+162.216.150.72 - - [20/Jun/2024 04:34:59] "GET / HTTP/1.1" 404 -
+147.185.132.209 - - [20/Jun/2024 07:23:46] "GET / HTTP/1.1" 404 -
+147.185.133.165 - - [20/Jun/2024 14:54:36] "GET / HTTP/1.1" 404 -
+167.94.138.50 - - [20/Jun/2024 15:39:57] "GET / HTTP/1.1" 404 -
+167.94.138.50 - - [20/Jun/2024 15:39:59] code 505, message Invalid HTTP version (2.0)
+167.94.138.50 - - [20/Jun/2024 15:39:59] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+147.185.133.90 - - [20/Jun/2024 18:03:45] "GET / HTTP/1.1" 404 -
+192.168.122.66 - - [21/Jun/2024 07:05:45] "POST /models HTTP/1.1" 200 -
+192.168.122.66 - - [21/Jun/2024 07:06:22] "POST /models HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jun/2024 07:07:52] "POST /models HTTP/1.1" 415 -
+127.0.0.1 - - [21/Jun/2024 07:12:49] "POST /models HTTP/1.1" 200 -
+127.0.0.1 - - [21/Jun/2024 07:13:02] "POST /models HTTP/1.1" 200 -
+87.236.176.159 - - [21/Jun/2024 21:53:11] "GET / HTTP/1.1" 404 -
+147.185.133.68 - - [22/Jun/2024 04:43:00] "GET / HTTP/1.1" 404 -
+35.203.210.42 - - [22/Jun/2024 15:05:22] "GET / HTTP/1.1" 404 -
+35.203.211.148 - - [23/Jun/2024 04:19:31] "GET / HTTP/1.1" 404 -
+167.94.138.112 - - [23/Jun/2024 08:14:09] "GET / HTTP/1.1" 404 -
+167.94.138.112 - - [23/Jun/2024 08:14:10] code 505, message Invalid HTTP version (2.0)
+167.94.138.112 - - [23/Jun/2024 08:14:10] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+162.216.150.5 - - [23/Jun/2024 14:52:01] "GET / HTTP/1.1" 404 -
+167.94.146.52 - - [24/Jun/2024 18:37:05] code 400, message Bad request version ('\x89\x07ÇM«$/\x9de./¨\x1b\x08©ÿö<-nî\x8fÐ\x8e')
+167.94.146.52 - - [24/Jun/2024 18:37:05] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03>ÏÀk\x13\x9b\x935D1\x88\x11Á\\_ó\x1e1k\x7f\x9fÂø\x8bGô{\x0bæÞÿ\x05 \x0cËE\x960\x0c\x89\x07ÇM«$/\x9de./¨\x1b\x08©ÿö<-nî\x8fÐ\x8e" HTTPStatus.BAD_REQUEST -
+167.94.146.52 - - [24/Jun/2024 18:37:09] "GET / HTTP/1.1" 404 -
+167.94.146.52 - - [24/Jun/2024 18:37:16] "GET / HTTP/1.1" 404 -
+167.94.146.52 - - [24/Jun/2024 18:37:17] code 505, message Invalid HTTP version (2.0)
+167.94.146.52 - - [24/Jun/2024 18:37:17] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+87.236.176.198 - - [24/Jun/2024 21:43:56] "GET / HTTP/1.1" 404 -
+192.168.122.66 - - [25/Jun/2024 14:02:21] "POST /models HTTP/1.1" 200 -
+147.185.133.124 - - [25/Jun/2024 15:12:19] "GET / HTTP/1.1" 404 -
+35.203.210.41 - - [26/Jun/2024 04:29:55] "GET / HTTP/1.1" 404 -
+147.185.132.233 - - [26/Jun/2024 15:21:44] "GET / HTTP/1.1" 404 -
+167.94.138.117 - - [26/Jun/2024 20:34:04] "GET / HTTP/1.1" 404 -
+167.94.138.117 - - [26/Jun/2024 20:34:05] code 505, message Invalid HTTP version (2.0)
+167.94.138.117 - - [26/Jun/2024 20:34:05] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.146.50 - - [27/Jun/2024 01:11:31] code 400, message Bad request version ('À\x14À')
+167.94.146.50 - - [27/Jun/2024 01:11:31] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03$êÞ\x05rÐª¨à\x99lq7\x0dÄ\x08ä5´Ã1c>YS \x09Õ\x1bµ¿g H\x13\x00\x97\x92\x08EèU\x13\x1d\x980ú­:\x08\x96\x0c\x8d¼þ\x7f!Hjã·N®ßy\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+167.94.146.50 - - [27/Jun/2024 01:11:35] "GET / HTTP/1.1" 404 -
+167.94.146.50 - - [27/Jun/2024 01:11:39] "GET / HTTP/1.1" 404 -
+167.94.146.50 - - [27/Jun/2024 01:11:40] code 505, message Invalid HTTP version (2.0)
+167.94.146.50 - - [27/Jun/2024 01:11:40] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+147.185.133.68 - - [27/Jun/2024 03:57:11] "GET / HTTP/1.1" 404 -
+147.185.132.146 - - [27/Jun/2024 15:47:01] "GET / HTTP/1.1" 404 -
+87.236.176.150 - - [27/Jun/2024 17:28:45] "GET / HTTP/1.1" 404 -
+147.185.133.221 - - [28/Jun/2024 04:22:10] "GET / HTTP/1.1" 404 -
+147.185.132.214 - - [28/Jun/2024 04:24:15] "GET / HTTP/1.1" 404 -
+45.58.184.155 - - [28/Jun/2024 07:04:28] code 400, message Bad request syntax ('\x04\x01\x00P¥è\x87\x14test\x00')
+45.58.184.155 - - [28/Jun/2024 07:04:28] "\x04\x01\x00P¥è\x87\x14test\x00" HTTPStatus.BAD_REQUEST -
+45.58.184.155 - - [28/Jun/2024 07:04:28] code 400, message Bad request syntax ('\x05\x01\x00')
+45.58.184.155 - - [28/Jun/2024 07:04:28] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -
+45.58.184.155 - - [28/Jun/2024 07:04:28] "GET http://165.232.135.20/122.99.183.54 HTTP/1.1" 404 -
+162.216.150.246 - - [28/Jun/2024 15:24:01] "GET / HTTP/1.1" 404 -
+167.94.138.41 - - [28/Jun/2024 22:11:47] "GET / HTTP/1.1" 404 -
+167.94.138.41 - - [28/Jun/2024 22:11:48] code 505, message Invalid HTTP version (2.0)
+167.94.138.41 - - [28/Jun/2024 22:11:48] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+199.45.154.126 - - [29/Jun/2024 00:23:24] code 400, message Bad request version ('À\x14À')
+199.45.154.126 - - [29/Jun/2024 00:23:24] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03r\x19ÐÏÄ\x8c\x9a\x972[\x9e\x0eâÈ¨ÿª8Í\x9dj*`lu\x0e`\x89I3Kî ¤¶[\x0eù\x88Ú\x80*\x17¼\x181.Oåa"w@wÏ×\x80b¼ÜÊZïª\x9b\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+199.45.154.126 - - [29/Jun/2024 00:23:27] "GET / HTTP/1.1" 404 -
+199.45.154.126 - - [29/Jun/2024 00:23:31] "GET / HTTP/1.1" 404 -
+199.45.154.126 - - [29/Jun/2024 00:23:31] code 505, message Invalid HTTP version (2.0)
+199.45.154.126 - - [29/Jun/2024 00:23:31] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+162.216.150.32 - - [29/Jun/2024 04:35:08] "GET / HTTP/1.1" 404 -
+147.185.133.49 - - [29/Jun/2024 15:25:36] "GET / HTTP/1.1" 404 -
+35.203.210.127 - - [30/Jun/2024 15:10:10] "GET / HTTP/1.1" 404 -
+87.236.176.11 - - [30/Jun/2024 15:47:19] "GET / HTTP/1.1" 404 -
+167.94.145.97 - - [30/Jun/2024 18:39:34] code 400, message Bad request version ('À\x14À')
+167.94.145.97 - - [30/Jun/2024 18:39:34] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ÎÊ£kÌÿ\x96¿Ù\x7f\x974\x95Ú\x8f6ë³\x9d¢ëMs,@\x7f2ËÁ,Èû k\x06|¶\x15þå3\x96×P\x07Éç½þÈN\x90\x8d´\x93S\x87­°.\x00k\x98-\x19\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+167.94.145.97 - - [30/Jun/2024 18:39:38] "GET / HTTP/1.1" 404 -
+167.94.145.97 - - [30/Jun/2024 18:39:42] "GET / HTTP/1.1" 404 -
+167.94.145.97 - - [30/Jun/2024 18:39:43] code 505, message Invalid HTTP version (2.0)
+167.94.145.97 - - [30/Jun/2024 18:39:43] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.145.111 - - [01/Jul/2024 17:18:37] code 400, message Bad request version ('À\x14À')
+167.94.145.111 - - [01/Jul/2024 17:18:37] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03L\x03Ùùà]D\x97(r,\x81õÛò÷Çø\x8ef\x7f\x99þÉó¤\x16³ð\x18\x91# \x02[geÃ\x14"£áÿm\x99±|z¼uf\x1e¶³êay\x1fùVÔg\x98<4\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+167.94.145.111 - - [01/Jul/2024 17:18:41] "GET / HTTP/1.1" 404 -
+167.94.145.111 - - [01/Jul/2024 17:18:45] "GET / HTTP/1.1" 404 -
+167.94.145.111 - - [01/Jul/2024 17:18:46] code 505, message Invalid HTTP version (2.0)
+167.94.145.111 - - [01/Jul/2024 17:18:46] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+147.185.133.125 - - [02/Jul/2024 04:33:01] "GET / HTTP/1.1" 404 -
+185.242.226.38 - - [02/Jul/2024 07:14:44] "GET / HTTP/1.1" 404 -
+35.203.211.248 - - [02/Jul/2024 14:38:08] "GET / HTTP/1.1" 404 -
+167.94.138.116 - - [02/Jul/2024 18:42:19] code 400, message Bad request version ('À\x14À')
+167.94.138.116 - - [02/Jul/2024 18:42:19] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x0bÃ\x88GZÎ\x00\x87\x1bïç¢¹ãv\x1a¯GzáÇ9\x8cÞúnA\x07hP\x14ð \x8e\\"\x87þ2ÿg\x80ð\x8e¦dØ\x95Z\x99ÏS®\x8bù¢[£§\x05f½¨\x04\x06\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+167.94.138.116 - - [02/Jul/2024 18:42:23] "GET / HTTP/1.1" 404 -
+167.94.138.116 - - [02/Jul/2024 18:42:27] "GET / HTTP/1.1" 404 -
+167.94.138.116 - - [02/Jul/2024 18:42:28] code 505, message Invalid HTTP version (2.0)
+167.94.138.116 - - [02/Jul/2024 18:42:28] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+35.203.210.240 - - [03/Jul/2024 04:53:14] "GET / HTTP/1.1" 404 -
+162.216.150.12 - - [03/Jul/2024 14:58:34] "GET / HTTP/1.1" 404 -
+87.236.176.242 - - [03/Jul/2024 15:34:48] "GET / HTTP/1.1" 404 -
+206.168.34.48 - - [03/Jul/2024 19:44:16] code 400, message Bad request version ('(rÞÄ\x13Õb/ú')
+206.168.34.48 - - [03/Jul/2024 19:44:16] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03å\x11{;ãIk¶\x9eáìZ{\x0c\x14\x18ËÓ:\x12û\x1f\x1d\x017íÖ\x15/\x9aÈh (rÞÄ\x13Õb/ú\x1c" HTTPStatus.BAD_REQUEST -
+206.168.34.48 - - [03/Jul/2024 19:44:19] "GET / HTTP/1.1" 404 -
+206.168.34.48 - - [03/Jul/2024 19:44:24] "GET / HTTP/1.1" 404 -
+206.168.34.48 - - [03/Jul/2024 19:44:24] code 505, message Invalid HTTP version (2.0)
+206.168.34.48 - - [03/Jul/2024 19:44:24] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+90.151.171.106 - - [04/Jul/2024 12:55:47] "CONNECT 90.151.171.106:443 HTTP/1.1" 404 -
+90.151.171.106 - - [04/Jul/2024 12:55:57] "GET http://90.151.171.106/ip.php?Z78135533502Q1 HTTP/1.1" 404 -
+90.151.171.106 - - [04/Jul/2024 12:55:58] code 400, message Bad request syntax ('\x04\x01\x00PZ\x97«j0\x00')
+90.151.171.106 - - [04/Jul/2024 12:55:58] "\x04\x01\x00PZ\x97«j0\x00" HTTPStatus.BAD_REQUEST -
+90.151.171.106 - - [04/Jul/2024 12:56:07] code 400, message Bad request syntax ('\x05\x01\x00')
+90.151.171.106 - - [04/Jul/2024 12:56:07] "\x05\x01\x00" HTTPStatus.BAD_REQUEST -
+147.185.132.157 - - [04/Jul/2024 14:57:40] "GET / HTTP/1.1" 404 -
+199.45.155.90 - - [04/Jul/2024 18:18:58] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Á!!4=VÐ\x8b¯rÈ¤ù\x10©tº«Ò¾#\x83½ßñ\x93A\x01Ìó¤u')
+199.45.155.90 - - [04/Jul/2024 18:18:58] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Á!!4=VÐ\x8b¯rÈ¤ù\x10©tº«Ò¾#\x83½ßñ\x93A\x01Ìó¤u ïcBÅyîQÚ¶\x13¸Å\x8a\x80" HTTPStatus.BAD_REQUEST -
+199.45.155.90 - - [04/Jul/2024 18:19:01] "GET / HTTP/1.1" 404 -
+199.45.155.90 - - [04/Jul/2024 18:19:05] "GET / HTTP/1.1" 404 -
+199.45.155.90 - - [04/Jul/2024 18:19:05] code 505, message Invalid HTTP version (2.0)
+199.45.155.90 - - [04/Jul/2024 18:19:05] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+35.203.210.217 - - [05/Jul/2024 05:01:10] "GET / HTTP/1.1" 404 -
+199.45.155.87 - - [05/Jul/2024 18:51:19] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Ê(\x8d¼\x05\x04\x90·\x90\x93¤E\x07ªnÃp\x00æ(ºêª\x97u°\x9axH')
+199.45.155.87 - - [05/Jul/2024 18:51:19] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Ê(\x8d¼\x05\x04\x90·\x90\x93¤E\x07ªnÃp\x00æ(ºêª\x97u°\x9axH" HTTPStatus.BAD_REQUEST -
+199.45.155.87 - - [05/Jul/2024 18:51:22] "GET / HTTP/1.1" 404 -
+199.45.155.87 - - [05/Jul/2024 18:51:28] "GET / HTTP/1.1" 404 -
+199.45.155.87 - - [05/Jul/2024 18:51:28] code 505, message Invalid HTTP version (2.0)
+199.45.155.87 - - [05/Jul/2024 18:51:28] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+87.236.176.107 - - [06/Jul/2024 00:31:44] "GET / HTTP/1.1" 404 -
+87.236.176.45 - - [06/Jul/2024 05:30:56] code 400, message Bad request syntax ('c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+87.236.176.45 - - [06/Jul/2024 05:30:56] "c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" HTTPStatus.BAD_REQUEST -
+87.236.176.42 - - [06/Jul/2024 05:31:11] "GET / HTTP/1.1" 404 -
+35.203.210.44 - - [06/Jul/2024 14:56:43] "GET / HTTP/1.1" 404 -
+162.216.150.178 - - [07/Jul/2024 04:19:31] "GET / HTTP/1.1" 404 -
+147.185.132.136 - - [07/Jul/2024 15:05:33] "GET / HTTP/1.1" 404 -
+167.94.138.40 - - [08/Jul/2024 00:14:20] "GET / HTTP/1.1" 404 -
+167.94.138.40 - - [08/Jul/2024 00:14:21] code 505, message Invalid HTTP version (2.0)
+167.94.138.40 - - [08/Jul/2024 00:14:21] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.145.110 - - [08/Jul/2024 00:54:42] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03é55Ä´ë5ÐÃÝ\x1e')
+167.94.145.110 - - [08/Jul/2024 00:54:42] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03é55Ä´ë5ÐÃÝ\x1e" HTTPStatus.BAD_REQUEST -
+167.94.145.110 - - [08/Jul/2024 00:54:46] "GET / HTTP/1.1" 404 -
+167.94.145.110 - - [08/Jul/2024 00:54:49] "GET / HTTP/1.1" 404 -
+167.94.145.110 - - [08/Jul/2024 00:54:50] code 505, message Invalid HTTP version (2.0)
+167.94.145.110 - - [08/Jul/2024 00:54:50] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.146.53 - - [08/Jul/2024 07:23:02] code 400, message Bad request version ('À\x14À')
+167.94.146.53 - - [08/Jul/2024 07:23:02] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03D\x9bZÖJxV2&\x96\x94ö\x16F¾\x15Ùí6ºn8\x08\x85 d\x93No +x \x14àwÁ\x8blë\x96®!IÉ\x92°\x0bþó»¹\x8f<\x12\x13]Ù\x0br¥Ù\x95|´\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+167.94.146.53 - - [08/Jul/2024 07:23:06] "GET / HTTP/1.1" 404 -
+167.94.146.53 - - [08/Jul/2024 07:23:10] "GET / HTTP/1.1" 404 -
+167.94.146.53 - - [08/Jul/2024 07:23:11] code 505, message Invalid HTTP version (2.0)
+167.94.146.53 - - [08/Jul/2024 07:23:11] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+147.185.132.130 - - [09/Jul/2024 05:02:40] "GET / HTTP/1.1" 404 -
+206.168.34.63 - - [09/Jul/2024 08:35:42] code 400, message Bad request version ('À\x14À')
+206.168.34.63 - - [09/Jul/2024 08:35:42] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03³0Ð VV\x97å\x8cë\x9b÷~ÿ\x06h\x17\x95+\x1b\x9fr%U°\x88I¢ÄËCO ?0tYQ@À½V½{\x90dO>ýS\x8a\x99\x09øÏZ\x1e©´._C4dõ\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+206.168.34.63 - - [09/Jul/2024 08:35:46] "GET / HTTP/1.1" 404 -
+206.168.34.63 - - [09/Jul/2024 08:35:54] "GET / HTTP/1.1" 404 -
+206.168.34.63 - - [09/Jul/2024 08:35:55] code 505, message Invalid HTTP version (2.0)
+206.168.34.63 - - [09/Jul/2024 08:35:55] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.49 - - [09/Jul/2024 11:34:39] code 400, message Bad request version ('À\x14À')
+167.94.138.49 - - [09/Jul/2024 11:34:39] "\x16\x03\x01\x00î\x01\x00\x00ê\x03\x038\x17i\x00NLÙ\x1aT\x07\x92\x98\x95-ôðÄ\x8b´\x96,n©êüu\x1f¡ò\x9bÊí \x0bç\x9a»\x15\x1b\x86\x9fÁ»\x1d\x98køØR×³âà$á>¯ÄíRÔÄù\x12D\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+167.94.138.49 - - [09/Jul/2024 11:34:43] "GET / HTTP/1.1" 404 -
+167.94.138.49 - - [09/Jul/2024 11:34:46] "GET / HTTP/1.1" 404 -
+167.94.138.49 - - [09/Jul/2024 11:34:46] code 505, message Invalid HTTP version (2.0)
+167.94.138.49 - - [09/Jul/2024 11:34:46] "PRI * HTTP/2.0" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+87.236.176.201 - - [09/Jul/2024 13:46:57] code 400, message Bad request version ('\x00\x00\x00ñ{\x05d\x05É')
+87.236.176.201 - - [09/Jul/2024 13:46:57] "\x05d\x05É\x00\x00\x00\x006L\x05d\x05É\x01\x00\x00\x00Þ\x8e\x05d\x05É\x02\x00\x00\x00\x9f\x84\x05d\x05É\x03\x00\x00\x00wF\x05d\x05É\x04\x00\x00\x00\x1d\x90\x05d\x05É\x05\x00\x00\x00õR\x05d\x05É\x06\x00\x00\x00´X\x05d\x05É\x07\x00\x00\x00\\\x9a\x05d\x05É\x08\x00\x00\x00\x19¹\x05d\x05É\x09\x00\x00\x00ñ{\x05d\x05É" HTTPStatus.BAD_REQUEST -
+87.236.176.200 - - [09/Jul/2024 13:47:15] code 400, message Bad request syntax ('c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+87.236.176.200 - - [09/Jul/2024 13:47:15] "c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" HTTPStatus.BAD_REQUEST -
+87.236.176.212 - - [09/Jul/2024 13:47:31] "GET / HTTP/1.1" 404 -
+147.185.132.172 - - [09/Jul/2024 15:58:12] "GET / HTTP/1.1" 404 -
