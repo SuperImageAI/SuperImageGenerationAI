@@ -15,7 +15,7 @@ import base64
 from model.sd3Model import sd3Models
 from PIL import Image, ImageDraw, ImageFont
 from model.addWaterMask import addWM
-   
+from model.registerModel import registerModel
 # current_path = abspath(dirname(__file__))
 #
 # root_path = current_path.replace("/ocr/main", "")
@@ -33,20 +33,37 @@ def post():
 
     print(param)
     print("post1有执行")
-    r = post_task(param)
-    print(r)
-    if len(r)>0:
+    current_dir =  os.path.dirname(__file__)
+    config_file_path =current_dir +"/config/config.py"
+    print("config_file_path======",config_file_path)
+    regModel=registerModel(config_file_path) 
+    current_status = regModel.read_register_status()
+
+    if current_status==0:
+        regModel.registerProcess()
+        current_status = regModel.read_register_status()
+    
+    if current_status==1:
          
-        res={ "code":0,
-            "message": "success",
-            "created": 1589478378,
-            "data":r
-        }
+        r = post_task(param)
+        print(r)
+        if len(r)>0:
+         
+            res={ "code":0,
+                "message": "success",
+                "created": 1589478378,
+                "data":r
+            }
+        else:
+            res={ "code":-1,
+                "message": "failed",
+                "data":r
+            } 
     else:
         res={ "code":-1,
-            "message": "failed",
-            "data":r
-        } 
+                "message": "model register failed",
+                "data":[]
+            }  
     return json.dumps(res, ensure_ascii=False)
 
 def post_task(param):

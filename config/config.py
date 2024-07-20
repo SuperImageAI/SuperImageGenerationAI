@@ -1,2 +1,1 @@
-
-
+registerStatus = 0
