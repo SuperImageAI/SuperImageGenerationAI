@@ -1,0 +1,110 @@
+nohup: ignoring input
+No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_application.py", line 1264, in process_update
+    await coroutine
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_handlers/basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/home/AI_project/ImageGenerationAI/model/sendSD3Photo.py", line 36, in generate_images
+    images = await client.fetch_images(text)
+  File "/home/AI_project/ImageGenerationAI/model/SD3Client.py", line 47, in fetch_images
+    results = await asyncio.gather(*tasks)
+  File "/home/AI_project/ImageGenerationAI/model/SD3Client.py", line 27, in fetch_image
+    image_data = getImge.get_images()
+  File "/home/AI_project/ImageGenerationAI/model/getSD3Image.py", line 44, in get_images
+    history = self.get_history(prompt_id)[prompt_id]
+KeyError: 'dc029a69-8ac4-4902-ad89-aad15dcef536'
+No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_application.py", line 1264, in process_update
+    await coroutine
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_handlers/basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/home/AI_project/ImageGenerationAI/model/sendSD3Photo.py", line 36, in generate_images
+    images = await client.fetch_images(text)
+  File "/home/AI_project/ImageGenerationAI/model/SD3Client.py", line 47, in fetch_images
+    results = await asyncio.gather(*tasks)
+  File "/home/AI_project/ImageGenerationAI/model/SD3Client.py", line 27, in fetch_image
+    image_data = getImge.get_images()
+  File "/home/AI_project/ImageGenerationAI/model/getSD3Image.py", line 44, in get_images
+    history = self.get_history(prompt_id)[prompt_id]
+KeyError: '32ec484a-9693-4081-a39d-65130af36142'
+/home/AI_project/ImageGenerationAI /home/AI_project/ImageGenerationAI/model
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:30:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:30:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DFDF0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DE4D0>] 2
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:30:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:30:57 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DFD00>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D0391E70>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DFDF0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DE4D0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DFD00>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D0391E70>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DFDF0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DE4D0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D03DFD00>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9D0391E70>] 4
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:31:15 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:31:15 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:31:19 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:31:19 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:32:07 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:32:07 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87DB10>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87E320>] 2
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:32:07 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:32:07 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87E530>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87F4C0>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87DB10>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87E320>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87E530>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87F4C0>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87DB10>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87E320>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87E530>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF87F4C0>] 4
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:33:07 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:33:07 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C46A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C5240>] 2
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:33:08 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:33:08 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+========flag2============== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C4D00>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C6B00>] 2
+========flag3====== [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C46A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C5240>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C4D00>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C6B00>] 4
+=================flag1============ [<PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C46A0>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C5240>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C4D00>, <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7FD9CF8C6B00>] 4
+<ClientResponse(http://127.0.0.1:8188/prompt) [200 OK]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Date': 'Sun, 07 Jul 2024 17:33:59 GMT', 'Server': 'Python/3.10 aiohttp/3.8.6')>
+ <class 'aiohttp.client_reqrep.ClientResponse'>
+No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_application.py", line 1264, in process_update
+    await coroutine
+  File "/root/anaconda3/envs/sdwebui/lib/python3.10/site-packages/telegram/ext/_handlers/basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+  File "/home/AI_project/ImageGenerationAI/model/sendSD3Photo.py", line 36, in generate_images
+    images = await client.fetch_images(text)
+  File "/home/AI_project/ImageGenerationAI/model/SD3Client.py", line 47, in fetch_images
+    results = await asyncio.gather(*tasks)
+  File "/home/AI_project/ImageGenerationAI/model/SD3Client.py", line 27, in fetch_image
+    image_data = getImge.get_images()
+  File "/home/AI_project/ImageGenerationAI/model/getSD3Image.py", line 44, in get_images
+    history = self.get_history(prompt_id)[prompt_id]
+KeyError: 'a7046e3c-031a-4ab9-b16b-b1e877b7b63e'
