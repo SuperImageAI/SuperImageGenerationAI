@@ -38,13 +38,16 @@ class SD3Client:
             return  addWM.process(image, water_mask)
 
     async def fetch_images(self, prompt):
-        with open("workflow_api.json","r",encoding="utf-8") as f:
+        with open("fluxworkflow.json","r",encoding="utf-8") as f:
             workflow_jsondata = f.read()
         client_id = self.client_id
         payload = json.loads(workflow_jsondata)
         # prompt = json.loads(prompt_text)
         #set the text prompt for our positive CLIPTextEncode
-        payload["6"]["inputs"]["text"] = prompt
+        for k in range(len(payload['nodes'])):
+            if payload['nodes'][k]['id']==6:
+                break 
+        payload['nodes'][k]['widgets_values'][0] = prompt
         # random_integer = random.randint(-100000, 100000)
 
         images = []
