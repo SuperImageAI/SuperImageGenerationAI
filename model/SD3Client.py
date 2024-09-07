@@ -19,7 +19,7 @@ class SD3Client:
     #     req =  urllib.request.Request("http://{}/prompt".format(server_address), data=data)
     #     return json.loads(urllib.request.urlopen(req).read())
     async def fetch_image(self, session, server_address,client_id ,payload):
-        payload["271"]["inputs"]["seed"] =random.randint(1, 945512652412924)
+        # payload["271"]["inputs"]["seed"] =random.randint(1, 945512652412924)
         p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
         url = "http://{}/prompt".format(server_address)
@@ -42,14 +42,8 @@ class SD3Client:
             workflow_jsondata = f.read()
         client_id = self.client_id
         payload = json.loads(workflow_jsondata)
-        # prompt = json.loads(prompt_text)
-        #set the text prompt for our positive CLIPTextEncode
-        for k in range(len(payload['nodes'])):
-            if payload['nodes'][k]['id']==6:
-                break 
-        payload['nodes'][k]['widgets_values'][0] = prompt
         # random_integer = random.randint(-100000, 100000)
-
+        payload["6"]["inputs"]["text"] = prompt
         images = []
 
         async with aiohttp.ClientSession() as session:
