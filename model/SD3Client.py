@@ -19,7 +19,7 @@ class SD3Client:
     #     req =  urllib.request.Request("http://{}/prompt".format(server_address), data=data)
     #     return json.loads(urllib.request.urlopen(req).read())
     async def fetch_image(self, session, server_address,client_id ,payload):
-        payload["25"]["inputs"]["seed"] =random.randint(1,113033161610077)
+        payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
         p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
         url = "http://{}/prompt".format(server_address)
