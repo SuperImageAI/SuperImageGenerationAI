@@ -15,7 +15,8 @@ class addWaterMask:
     def process(self, img, text):
         # img = Image.open(img_path)
         draw = ImageDraw.Draw(img)
-        w,h = draw.textsize(text,self.font)
+        bbox = draw.textbbox((0,0),text,self.font)
+        w,h =bbox[2] - bbox[0], bbox[3] - bbox[1]
         position = (img.width-w-10, img.height-h-10) # 增加水印位置,
  
         draw.text(position, text, font=self.font, fill=(255,255,255))

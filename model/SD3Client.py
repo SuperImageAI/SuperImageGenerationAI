@@ -23,21 +23,22 @@ class SD3Client:
         # payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
         # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
-        url = "http://{}/v1/images/generations'".format(server_address)
-        print("flag===xxx==xxx==xx==",url,payload)
+        image_url = "http://{}/v1/images/generations".format(server_address)
+        print("flag===xxx==xxx==xx==",image_url,payload)
         headers = {"Content-Type": "application/json"}
 
-        async with session.post(url, json=payload,headers=headers) as response:
+        async with session.post(image_url, json=payload,headers=headers) as response:
             print(response,type(response))
             r = await response.json()
-            imag_url = r["url"]
+            print("flag=======xxx===xx",r,response.json())
+            imag_url = r['data'][0]["url"]
             # client_id = self.client_id
             # getImge = getSDImage(server_address=server_address,rdata=r)
             # image_data = getImge.get_images()
-            res = requests.get(url)
+            res = requests.get(imag_url)
             image_data = io.BytesIO(res.content)
-            print("image_data=======",len(image_data))
-            image = Image.open(io.BytesIO(image_data))
+            print("image_data=======",image_data)
+            image = Image.open(image_data)
             water_mask = "SuperImageAI"
             # image = addWM.process(image, water_mask)
             return  addWM.process(image, water_mask)
