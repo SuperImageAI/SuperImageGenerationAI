@@ -3,6 +3,7 @@ import aiohttp
 from PIL import Image
 import io
 import json
+import requests 
 # import base64
 from addWaterMask import addWM
 from getSD3Image import getSDImage
@@ -19,18 +20,22 @@ class SD3Client:
     #     req =  urllib.request.Request("http://{}/prompt".format(server_address), data=data)
     #     return json.loads(urllib.request.urlopen(req).read())
     async def fetch_image(self, session, server_address,client_id ,payload):
-        payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
-        p = {"prompt": payload, "client_id": client_id}
+        # payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
+        # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
-        url = "http://{}/prompt".format(server_address)
-        print("flag===xxx==",url,p)
+        url = "http://{}/v1/images/generations'".format(server_address)
+        print("flag===xxx==",url,payload)
         headers = {"Content-Type": "application/json"}
+
         async with session.post(url, json=p,headers=headers) as response:
             print(response,type(response))
             r = await response.json()
+            imag_url = r["url"]
             # client_id = self.client_id
-            getImge = getSDImage(server_address=server_address,client_id=client_id,rdata=r)
-            image_data = getImge.get_images()
+            # getImge = getSDImage(server_address=server_address,client_id=client_id,rdata=r)
+            # image_data = getImge.get_images()
+            res = requests.get(url)
+            image_data = io.BytesIO(res.content)
             print("image_data=======",len(image_data))
             image = Image.open(io.BytesIO(image_data))
             water_mask = "SuperImageAI"
@@ -38,14 +43,17 @@ class SD3Client:
             return  addWM.process(image, water_mask)
 
     async def fetch_images(self, prompt):
-        with open("flux_workflow_api.json","r",encoding="utf-8") as f:
-            workflow_jsondata = f.read()
-        client_id = self.client_id
-        payload = json.loads(workflow_jsondata)
-        # random_integer = random.randint(-100000, 100000)
-        payload["6"]["inputs"]["text"] = prompt
+        # with open("flux_workflow_api.json","r",encoding="utf-8") as f:
+        #     workflow_jsondata = f.read()
+        # client_id = self.client_id
+        # payload = json.loads(workflow_jsondata)
+        # # random_integer = random.randint(-100000, 100000)
+        # payload["6"]["inputs"]["text"] = prompt
         images = []
-
+        payload = {} 
+        payload["prompt"]= prompt
+        payload["size"]="1024x1024"
+        payload["model"] = "FLUX.1-dev" 
         async with aiohttp.ClientSession() as session:
             for kk in range(2):
                 tasks = [asyncio.create_task(self.fetch_image(session, server_adress, client_id,payload)) for server_adress in self.server_adresses]
