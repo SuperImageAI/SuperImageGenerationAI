@@ -24,7 +24,7 @@ class SD3Client:
         # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
         url = "http://{}/v1/images/generations'".format(server_address)
-        print("flag===xxx==",url,payload)
+        print("flag===xxx==xxx==xx==",url,payload)
         headers = {"Content-Type": "application/json"}
 
         async with session.post(url, json=payload,headers=headers) as response:
@@ -50,10 +50,11 @@ class SD3Client:
         # # random_integer = random.randint(-100000, 100000)
         # payload["6"]["inputs"]["text"] = prompt
         images = []
-        payload = {} 
-        payload["prompt"]= prompt
-        payload["size"]="1024x1024"
-        payload["model"] = "FLUX.1-dev" 
+        payload = {
+            "prompt":prompt,
+            "size": "1024x1024",
+            "model": "FLUX.1-dev"
+        }
         async with aiohttp.ClientSession() as session:
             for kk in range(2):
                 tasks = [asyncio.create_task(self.fetch_image(session, server_adress,payload)) for server_adress in self.server_adresses]
