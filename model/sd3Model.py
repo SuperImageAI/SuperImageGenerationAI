@@ -32,16 +32,18 @@ class sd3Models:
         # payload["271"]["inputs"]["seed"] =random.randint(1, 945512652412924)
         # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8')
-        payload = {} 
-        payload["prompt"]= prompt
-        payload["size"]="1024x1024"
-        payload["model"] = "FLUX.1-dev" 
+        payload = {
+            "prompt": mtext,
+            "size": "1024x1024",
+            "model": "FLUX.1-dev"
+        }
         url = "http://{}/v1/images/generations".format(server_address)
         print("flag===xxx==",url,payload)
         headers = {"Content-Type": "application/json"}
-        with rt.post(url, json=payload,headers=headers) as response:
-            print(response,type(response))
-            r =  response.json()
+        payload = json.dumps(payload)
+        response = rt.post(url, json=payload, headers=headers)
+        print(response,type(response))
+        r =  response.json()
         
         imag_url = r["url"]
             # client_id = self.client_id

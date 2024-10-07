@@ -27,7 +27,7 @@ class SD3Client:
         print("flag===xxx==",url,payload)
         headers = {"Content-Type": "application/json"}
 
-        async with session.post(url, json=p,headers=headers) as response:
+        async with session.post(url, json=payload,headers=headers) as response:
             print(response,type(response))
             r = await response.json()
             imag_url = r["url"]
