@@ -19,7 +19,7 @@ class SD3Client:
     #     data = json.dumps(p).encode('utf-8')
     #     req =  urllib.request.Request("http://{}/prompt".format(server_address), data=data)
     #     return json.loads(urllib.request.urlopen(req).read())
-    async def fetch_image(self, session, server_address,client_id ,payload):
+    async def fetch_image(self, session, server_address,payload):
         # payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
         # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
@@ -32,7 +32,7 @@ class SD3Client:
             r = await response.json()
             imag_url = r["url"]
             # client_id = self.client_id
-            # getImge = getSDImage(server_address=server_address,client_id=client_id,rdata=r)
+            # getImge = getSDImage(server_address=server_address,rdata=r)
             # image_data = getImge.get_images()
             res = requests.get(url)
             image_data = io.BytesIO(res.content)
@@ -56,7 +56,7 @@ class SD3Client:
         payload["model"] = "FLUX.1-dev" 
         async with aiohttp.ClientSession() as session:
             for kk in range(2):
-                tasks = [asyncio.create_task(self.fetch_image(session, server_adress, client_id,payload)) for server_adress in self.server_adresses]
+                tasks = [asyncio.create_task(self.fetch_image(session, server_adress,payload)) for server_adress in self.server_adresses]
                 results = await asyncio.gather(*tasks)
                 print("========flag2==============",len(results))
                 for result in results:

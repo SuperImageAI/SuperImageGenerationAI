@@ -75,8 +75,7 @@ def post_task(param):
         # test = addWM()
         data =[]
         try:
-
-            server_address ="127.0.0.1:8188"
+            server_address ="127.0.0.1:1042"
             sdmodel = sd3Models(server_address,16)
             for k in range(Num):
                 image_data = sdmodel.sd3Image(text)
