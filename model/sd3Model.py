@@ -22,25 +22,36 @@ class sd3Models:
     
     def sd3Image(self,mtext):
         current_dir = os.path.dirname(__file__)
-        with open(current_dir+"/"+"workflow_api.json","r",encoding="utf-8") as f:
-            workflow_jsondata = f.read()
+        # with open(current_dir+"/"+"workflow_api.json","r",encoding="utf-8") as f:
+        #     workflow_jsondata = f.read()
         
-        client_id =self.client_id
-        server_address=self.server_address
-        payload = json.loads(workflow_jsondata)
-        payload["6"]["inputs"]["text"] = mtext
-        payload["271"]["inputs"]["seed"] =random.randint(1, 945512652412924)
-        p = {"prompt": payload, "client_id": client_id}
-        # data = json.dumps(p).encode('utf-8') 
-        url = "http://{}/prompt".format(server_address)
-        print("flag===xxx==",url,p)
+        # client_id =self.client_id
+        # server_address=self.server_address
+        # payload = json.loads(workflow_jsondata)
+        # payload["6"]["inputs"]["text"] = mtext
+        # payload["271"]["inputs"]["seed"] =random.randint(1, 945512652412924)
+        # p = {"prompt": payload, "client_id": client_id}
+        # data = json.dumps(p).encode('utf-8')
+        payload = {} 
+        payload["prompt"]= prompt
+        payload["size"]="1024x1024"
+        payload["model"] = "FLUX.1-dev" 
+        url = "http://{}/v1/images/generations".format(server_address)
+        print("flag===xxx==",url,payload)
         headers = {"Content-Type": "application/json"}
-        with rt.post(url, json=p,headers=headers) as response:
+        with rt.post(url, json=payload,headers=headers) as response:
             print(response,type(response))
             r =  response.json()
+        
+        imag_url = r["url"]
             # client_id = self.client_id
-        getImge = getSDImage(server_address=server_address,client_id=client_id,rdata=r)
-        image_data = getImge.get_images()
+            # getImge = getSDImage(server_address=server_address,client_id=client_id,rdata=r)
+            # image_data = getImge.get_images()
+        res = rt.get(url)
+        image_data = io.BytesIO(res.content)
+         # client_id = self.client_id
+        # getImge = getSDImage(server_address=server_address,client_id=client_id,rdata=r)
+        # image_data = getImge.get_images()
         print("image_data=======",len(image_data))
         return image_data
     
