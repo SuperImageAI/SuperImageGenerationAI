@@ -4,7 +4,7 @@ from PIL import Image
 import io
 import json
 import requests 
-# import base64
+import base64
 from addWaterMask import addWM
 from getSD3Image import getSDImage
 import random
@@ -23,7 +23,7 @@ class SD3Client:
         # payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
         # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
-        image_url = "http://{}/v1/images/generations".format(server_address)
+        image_url = "http://{}/api/v0/image/gen/proxy".format(server_address)
         print("flag===xxx==xxx==xx==",image_url,payload)
         headers = {"Content-Type": "application/json"}
 
@@ -31,14 +31,16 @@ class SD3Client:
             print(response,type(response))
             r = await response.json()
             print("flag=======xxx===xx",r,response.json())
-            imag_url = r['data'][0]["url"]
-            # client_id = self.client_id
-            # getImge = getSDImage(server_address=server_address,rdata=r)
-            # image_data = getImge.get_images()
-            res = requests.get(imag_url)
-            image_data = io.BytesIO(res.content)
-            print("image_data=======",image_data)
-            image = Image.open(image_data)
+            b64_data = r['data']['choices'][0]['b64_json']
+            image_data = base64.b64decode(b64_data)
+
+            # 将解码后的数据转换为二进制流
+            image_stream = io.BytesIO(image_data)
+
+            # 使用PIL打开图片
+            image = Image.open(image_stream)
+            # print("image_data=======",image_data)
+            # image = Image.open(image_data)
             water_mask = "SuperImageAI"
             # image = addWM.process(image, water_mask)
             return  addWM.process(image, water_mask)
@@ -52,10 +54,15 @@ class SD3Client:
         # payload["6"]["inputs"]["text"] = prompt
         images = []
         payload = {
-            "prompt":prompt,
-            "size": "1024x1024",
-            "model": "FLUX.1-dev"
-        }
+                    "project": "SuperImageAI",
+                    "model": "FLUX.1-dev",
+                    "prompt": prompt,
+                    "n": 1,
+                    "response_format":"b64_json",
+                    "size":"1024x1024",
+                    "width": 1024,
+                    "height": 1024
+                }
         async with aiohttp.ClientSession() as session:
             for kk in range(2):
                 tasks = [asyncio.create_task(self.fetch_image(session, server_adress,payload)) for server_adress in self.server_adresses]

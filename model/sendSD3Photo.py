@@ -27,8 +27,8 @@ async def generate_images(update: Update, context: CallbackContext):
 
     images =[]
     server_adresses = [
-        "127.0.0.1:1042",
-        "127.0.0.1:1042"
+        "8.219.75.114:8081",
+        "8.219.75.114:8081"
     ]
     # client_id = str(uuid.uuid4())
     client = SD3Client(server_adresses)
