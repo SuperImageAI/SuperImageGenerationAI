@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  gpt-api:
+    image: luchenyu/gpt-api-image-generation
+    runtime: nvidia
+    shm_size: '48gb'
+    ulimits:
+      stack: 67108864
+      memlock: -1
+    ports:
+      - "1042:8080"
+    environment:
+      - DEBUG=true
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ "0,1" ]
+              capabilities: [gpu]

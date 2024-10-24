@@ -1,0 +1,69 @@
+{
+  "Bootstrap": [
+    "/ip4/122.99.183.54/tcp/6001/p2p/16Uiu2HAmRTpigc7jAbsLndB2xDEBMAXLb887SBEFhfdJeEJNtqRM",
+    "/ip4/82.157.50.32/tcp/6001/p2p/16Uiu2HAmS4CErxrmPryJbbEX2HFQbLK8r8xCA5rmzdSU59rHc9AF"
+  ],
+  "Addresses": [
+    "/ip4/0.0.0.0/tcp/7001",
+    "/ip6/::/tcp/7001"
+  ],
+  "API": {
+    "Addr": "127.0.0.1:7002"
+  },
+  "Identity": {
+    "PeerID": "16Uiu2HAkyTFMFfBxMWbqxZMtstMpkriaSyKf8eG3ZCUvXh29F1gz",
+    "PrivKey": "CAISINHaJkPS6hdl2kHsSZKzNr96Ipxkxt3Tme01q2ztoNqM"
+  },
+  "Swarm": {
+    "ConnMgr": {
+      "Type": "basic",
+      "HighWater": 400,
+      "LowWater": 100,
+      "GracePeriod": "60s"
+    },
+    "DisableNatPortMap": false,
+    "RelayClient": {
+      "Enabled": false,
+      "StaticRelays": null
+    },
+    "RelayService": {
+      "Enabled": false
+    },
+    "EnableHolePunching": false,
+    "EnableAutoNATService": true
+  },
+  "Pubsub": {
+    "Enabled": true,
+    "Router": "floodsub",
+    "FloodPublish": true
+  },
+  "Routing": {
+    "Type": "dhtclient",
+    "ProtocolPrefix": "/dbc"
+  },
+  "App": {
+    "LogLevel": "info",
+    "LogFile": "/home/AI_project/AIComputingNode/AIComputingNode/host.log",
+    "LogOutput": "file",
+    "PreSharedKey": "f504f536a912a8cf7d00adacee8ed20270c5040d961d7f3da4fccbcbec0ec48a",
+    "TopicName": "DeepBrainChain",
+    "Datastore": "/home/AI_project/AIComputingNode/AIComputingNode/datastore-1",
+    "PeersCollect": {
+      "Enabled": false,
+      "HeartbeatInterval": "180s",
+      "ClientProject": ""
+    }
+  },
+  "AIProjects": [
+    {
+      "Project": "SuperImageAI",
+      "Models": [
+        {
+          "Model": "FLUX.1-dev",
+          "API": "http://127.0.0.1:1042/v1/images/generations",
+          "Type": 1
+        }
+      ]
+    }
+  ]
+}
