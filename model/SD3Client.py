@@ -28,9 +28,9 @@ class SD3Client:
         headers = {"Content-Type": "application/json"}
 
         async with session.post(image_url, json=payload,headers=headers) as response:
-            print(response,type(response))
+            # print(response,type(response))
             r = await response.json()
-            print("flag=======xxx===xx",r,response.json())
+            # print("flag=======xxx===xx",r,response.json())
             b64_data = r['data']['choices'][0]['b64_json']
             image_data = base64.b64decode(b64_data)
 
