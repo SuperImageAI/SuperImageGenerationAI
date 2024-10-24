@@ -64,7 +64,7 @@ class SD3Client:
                     "height": 1024
                 }
         async with aiohttp.ClientSession() as session:
-            for kk in range(2):
+            for kk in range(4):
                 tasks = [asyncio.create_task(self.fetch_image(session, server_adress,payload)) for server_adress in self.server_adresses]
                 results = await asyncio.gather(*tasks)
                 print("========flag2==============",len(results))

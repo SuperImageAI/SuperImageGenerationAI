@@ -10,7 +10,7 @@ class registerModel:
         self.config_file_path=config_file_path
 
     def reModel(self):
-        url ='http://127.0.0.1:6000/api/v0/ai/project/register'
+        url ='http://127.0.0.1:7002/api/v0/ai/project/register'
 
         modelData = {
     #   // AI project name
@@ -19,9 +19,9 @@ class registerModel:
                     "models": [
                         {
                         #   // Model name
-                        "model": "superImage",
+                        "model": "FLUX.1-dev",
                         #   // HTTP Url for executing model
-                        "api": "http://127.0.0.1:1088/v1/images/generations",
+                        "api": "http://127.0.0.1:1042/v1/images/generations",
                         #   // Model type, default 0
                         #   // 0 - Text generation text model
                         #   // 1 - Text generation image model
