@@ -31,7 +31,7 @@ class SD3Client:
             # print(response,type(response))
             r = await response.json()
             # print("flag=======xxx===xx",r,response.json())
-            b64_data = r['data']['choices'][0]['b64_json']
+            b64_data = r['data'][0]['b64_json']
             image_data = base64.b64decode(b64_data)
 
             # 将解码后的数据转换为二进制流
