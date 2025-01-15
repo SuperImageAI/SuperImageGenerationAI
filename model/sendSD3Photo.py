@@ -86,15 +86,16 @@ async def button_callback(update: Update, context: CallbackContext) -> None:
 async def custom_command_handler(update: Update, context: CallbackContext):
     text = update.message.text
     if text.startswith('/'):  # 检查是否以 "/" 开头
-        # 手动解析非英文字母开头的命令
-        command = text.split(' ')[0][1:]  # 提取命令部分
-        if not command[0].isalpha():  # 如果命令不是以英文字母开头
-            # 将其视为生成图片的触发命令
-            await generate_images(update, context)
+        # 将命令前缀去掉，直接提取文本内容
+        command = text[1:].strip()  # 去掉 "/" 并去掉多余的空格
+        if command:  # 如果命令非空，直接将其作为文本传递给图像生成逻辑
+            update.message.text = command  # 修改消息的文本内容
+            await generate_images(update, context)  # 调用图像生成逻辑
         else:
-            await update.message.reply_text("Unknown command.")
+            await update.message.reply_text("Command is empty. Please provide text after '/'.")
     else:
-        await update.message.reply_text("Please use a command starting with '/'.")
+        # 如果消息不以 "/" 开头，不做任何反应
+        pass
 
 # 主函数
 def main():
@@ -104,7 +105,7 @@ def main():
     application.add_handler(CommandHandler('start', start))
 
     # 添加自定义命令解析处理器
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, custom_command_handler))
+    application.add_handler(MessageHandler(filters.TEXT, custom_command_handler))
 
     # 添加按钮回调处理器
     application.add_handler(CallbackQueryHandler(button_callback))
