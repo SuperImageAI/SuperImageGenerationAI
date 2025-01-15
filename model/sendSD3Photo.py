@@ -22,17 +22,15 @@ async def start(update: Update, context: CallbackContext):
     await update.message.reply_text('发送文本生成图片。')
 
 # 处理文本消息，生成图片
-async def generate_images(update: Update, context: CallbackContext):
-    text = update.message.text
-
-    images =[]
+async def generate_images(update: Update, context: CallbackContext, text: str):
+    images = []
     server_adresses = [
         "8.219.75.114:8081"
     ]
-    # client_id = str(uuid.uuid4())
     client = SD3Client(server_adresses)
     images = await client.fetch_images(text)
-    print("=================flag1============",len(images))    
+    print("=================flag1============", len(images))
+  
 
     if len(images) == 4:
     # 确保所有图片大小相同（这里以第一张图片的大小为准）
@@ -89,8 +87,7 @@ async def custom_command_handler(update: Update, context: CallbackContext):
         # 将命令前缀去掉，直接提取文本内容
         command = text[1:].strip()  # 去掉 "/" 并去掉多余的空格
         if command:  # 如果命令非空，直接将其作为文本传递给图像生成逻辑
-            update.message.text = command  # 修改消息的文本内容
-            await generate_images(update, context)  # 调用图像生成逻辑
+            await generate_images(update, context, command)  # 调用图像生成逻辑并传递解析后的文本
         else:
             await update.message.reply_text("Command is empty. Please provide text after '/'.")
     else:
