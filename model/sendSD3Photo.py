@@ -83,13 +83,30 @@ async def button_callback(update: Update, context: CallbackContext) -> None:
     parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
     selectImPath =parent_dir+'/photos/'+str(update.effective_chat.id)+'image' +str(int(selected_image_index)+1)+'.jpg'
     await context.bot.send_photo(update.effective_chat.id,open(selectImPath,'rb'))
+async def custom_command_handler(update: Update, context: CallbackContext):
+    text = update.message.text
+    if text.startswith('/'):  # 检查是否以 "/" 开头
+        # 手动解析非英文字母开头的命令
+        command = text.split(' ')[0][1:]  # 提取命令部分
+        if not command[0].isalpha():  # 如果命令不是以英文字母开头
+            # 将其视为生成图片的触发命令
+            await generate_images(update, context)
+        else:
+            await update.message.reply_text("Unknown command.")
+    else:
+        await update.message.reply_text("Please use a command starting with '/'.")
 
+# 主函数
 def main():
     application = Application.builder().token(TOKEN).build()
 
+    # 添加命令处理器
     application.add_handler(CommandHandler('start', start))
 
-    application.add_handler(MessageHandler(filters.COMMAND, generate_images))
+    # 添加自定义命令解析处理器
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, custom_command_handler))
+
+    # 添加按钮回调处理器
     application.add_handler(CallbackQueryHandler(button_callback))
 
     application.run_polling()
