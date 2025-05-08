@@ -1,2 +1,6 @@
 
 .codegpt
+
+venv/
+.specstory/
+model/__pycache__

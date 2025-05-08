@@ -24,7 +24,7 @@ class SD3Client:
         # p = {"prompt": payload, "client_id": client_id}
         # data = json.dumps(p).encode('utf-8') 
         # image_url = "http://{}/api/v0/image/gen/proxy".format(server_address)
-        image_url = "https://test.superimage.ai/api/v1/prompts/generate-image"
+        image_url = "https://app.superimage.ai/api/v1/prompts/generate-image"
         print("flag===xxx==xxx==xx==",image_url,payload)
         headers = {"Content-Type": "application/json"}
 
@@ -56,7 +56,7 @@ class SD3Client:
         images = []
         payload = {
                     "project": "SuperImageAI",
-                    "model": "flux",
+                    "model": "FLUX.1-dev",
                     "prompt": prompt,
                     "n": 1,
                     "response_format":"b64_json",
