@@ -19,61 +19,60 @@ class SD3Client:
     #     data = json.dumps(p).encode('utf-8')
     #     req =  urllib.request.Request("http://{}/prompt".format(server_address), data=data)
     #     return json.loads(urllib.request.urlopen(req).read())
-    async def fetch_image(self, session, server_address,payload):
-        # payload["25"]["inputs"]["noise_seed"] =random.randint(1,113033161610077)
-        # p = {"prompt": payload, "client_id": client_id}
-        # data = json.dumps(p).encode('utf-8') 
-        # image_url = "http://{}/api/v0/image/gen/proxy".format(server_address)
-        image_url = "https://app.superimage.ai/api/v1/prompts/generate-image"
-        print("flag===xxx==xxx==xx==",image_url,payload)
-        headers = {"Content-Type": "application/json"}
+    async def fetch_image(self, session, server_address, payload):
+        image_url = "https://www.superimage.ai/app/api/v1/prompts/generate-image-batch-tg"
+        print("flag===xxx==xxx==xx==", image_url, payload)
 
-        async with session.post(image_url, json=payload,headers=headers) as response:
-            # print(response,type(response))
-            r = await response.json()
-            # print("flag=======xxx===xx",r,response.json())
-            b64_data = r['data'][0]['b64_json']
-            image_data = base64.b64decode(b64_data)
+        headers = {
+            "Content-Type": "application/json"
+        }
 
-            # 将解码后的数据转换为二进制流
-            image_stream = io.BytesIO(image_data)
+        async with session.post(image_url, json=payload, headers=headers) as response:
+            # 处理JSON响应
+            result = await response.json()
+            print("API Response:", str(result)[:100])
 
-            # 使用PIL打开图片
-            image = Image.open(image_stream)
-            # print("image_data=======",image_data)
-            # image = Image.open(image_data)
-            water_mask = "SuperImageAI"
-            # image = addWM.process(image, water_mask)
-            return  addWM.process(image, water_mask)
+            if result.get("success") and result.get("results"):
+                for model_result in result["results"]:
+                    if model_result.get("imageData"):
+                        b64_data = model_result["imageData"]
+                        image_data = base64.b64decode(b64_data)
+                        image_stream = io.BytesIO(image_data)
+                        image = Image.open(image_stream)
+                        water_mask = "SuperImageAI"
+                        return addWM.process(image, water_mask)
+
+            # 如果没有找到图片数据，返回None
+            return None
 
     async def fetch_images(self, prompt):
-        # with open("flux_workflow_api.json","r",encoding="utf-8") as f:
-        #     workflow_jsondata = f.read()
-        # client_id = self.client_id
-        # payload = json.loads(workflow_jsondata)
-        # # random_integer = random.randint(-100000, 100000)
-        # payload["6"]["inputs"]["text"] = prompt
         images = []
         payload = {
-                    "project": "SuperImageAI",
-                    "model": "FLUX.1-dev",
-                    "prompt": prompt,
-                    "n": 1,
-                    "response_format":"b64_json",
-                    "size":"1024x1024",
-                    "width": 1024,
-                    "height": 1024
-                }
+            "prompt": prompt,
+            "models": ["FLUX.1-dev"]
+        }
+
         async with aiohttp.ClientSession() as session:
-            for kk in range(4):
-                tasks = [asyncio.create_task(self.fetch_image(session, server_adress,payload)) for server_adress in self.server_adresses]
-                results = await asyncio.gather(*tasks)
-                print("========flag2==============",len(results))
-                for result in results:
+            # 由于新接口是批量生成，我们只需要调用一次
+            tasks = [asyncio.create_task(self.fetch_image(session, server_adress, payload)) for server_adress in self.server_adresses]
+            results = await asyncio.gather(*tasks)
+            print("========flag2==============", len(results))
+
+            # 过滤掉None结果并收集图片
+            for result in results:
+                if result is not None:
                     images.append(result)
-                    # print("========flag3======",result.get("images", []))
-            print("========flag3======",len(images))
-        return images
+
+            # 如果需要4张图片但返回不足，可以重复调用
+            while len(images) < 4 and len(images) > 0:
+                tasks = [asyncio.create_task(self.fetch_image(session, server_adress, payload)) for server_adress in self.server_adresses]
+                additional_results = await asyncio.gather(*tasks)
+                for result in additional_results:
+                    if result is not None and len(images) < 4:
+                        images.append(result)
+
+            print("========flag3======", len(images))
+        return images[:4]  # 确保最多返回4张图片
 # sdClient = StableDiffusionClient() 
 # 使用示例
 # async def main():

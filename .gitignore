@@ -4,3 +4,5 @@
 venv/
 .specstory/
 model/__pycache__
+
+log/*
