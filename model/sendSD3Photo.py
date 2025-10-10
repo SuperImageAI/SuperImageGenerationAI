@@ -22,7 +22,7 @@ TOKEN = '8472024095:AAG34uPfB88E_B-S6ucLlKTC9YC4WCU97iY'
 async def start(update: Update, context: CallbackContext):
     user_info = f"User: {update.effective_user.username} ({update.effective_user.id})"
     print(f"[START] {user_info} started the bot")
-    await update.message.reply_text('按下start响应，发送文本生成图片。')
+    await update.message.reply_text('Bot started! Send text to generate images.')
 
 # 处理文本消息，生成图片
 async def generate_images(update: Update, context: CallbackContext, text: str):
@@ -78,10 +78,10 @@ async def generate_images(update: Update, context: CallbackContext, text: str):
         keyboard = [[InlineKeyboardButton(f"Image {i+1}", callback_data=str(i)) for i in range(4)]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         print(f"[UI] Showing selection buttons to {user_info}")
-        await update.message.reply_text('Choose the one you like best：', reply_markup=reply_markup)
+        await update.message.reply_text('Choose the one you like best:', reply_markup=reply_markup)
     else:
         print(f"[ERROR] Image generation failed for {user_info}, got {len(images)} images instead of 4")
-        await update.message.reply_text('Failed to generate image。')
+        await update.message.reply_text('Failed to generate images.')
 
 # 处理按钮回调
 async def button_callback(update: Update, context: CallbackContext) -> None:
