@@ -10,6 +10,8 @@ import os
 import base64
 from addWaterMask import addWM
 from SD3Client import SD3Client
+import logging
+from telegram.error import BadRequest, NetworkError, TimedOut
 
 
 # TOKEN = '6926867064:AAEFCbBi3mw6Oip_shmNJXLtApDlujz8c2A'
@@ -22,7 +24,13 @@ TOKEN = '8472024095:AAG34uPfB88E_B-S6ucLlKTC9YC4WCU97iY'
 async def start(update: Update, context: CallbackContext):
     user_info = f"User: {update.effective_user.username} ({update.effective_user.id})"
     print(f"[START] {user_info} started the bot")
-    await update.message.reply_text('Bot started! Send text to generate images.')
+    try:
+        if update.message:
+            await update.message.reply_text('Bot started! Send text to generate images.')
+        else:
+            await context.bot.send_message(update.effective_chat.id, 'Bot started! Send text to generate images.')
+    except (BadRequest, NetworkError, TimedOut) as e:
+        print(f"[ERROR] Failed to send start message: {e}")
 
 # 处理文本消息，生成图片
 async def generate_images(update: Update, context: CallbackContext, text: str):
@@ -78,10 +86,27 @@ async def generate_images(update: Update, context: CallbackContext, text: str):
         keyboard = [[InlineKeyboardButton(f"Image {i+1}", callback_data=str(i)) for i in range(4)]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         print(f"[UI] Showing selection buttons to {user_info}")
-        await update.message.reply_text('Choose the one you like best:', reply_markup=reply_markup)
+        try:
+            if update.message:
+                await update.message.reply_text('Choose the one you like best:', reply_markup=reply_markup)
+            else:
+                await context.bot.send_message(update.effective_chat.id, 'Choose the one you like best:', reply_markup=reply_markup)
+        except BadRequest as e:
+            print(f"[WARNING] Could not reply to message (may have been deleted): {e}")
+            # 尝试直接发送消息而不回复
+            try:
+                await context.bot.send_message(update.effective_chat.id, 'Choose the one you like best:', reply_markup=reply_markup)
+            except Exception as e2:
+                print(f"[ERROR] Failed to send selection message: {e2}")
     else:
         print(f"[ERROR] Image generation failed for {user_info}, got {len(images)} images instead of 4")
-        await update.message.reply_text('Failed to generate images.')
+        try:
+            if update.message:
+                await update.message.reply_text('Failed to generate images. Please try again later.')
+            else:
+                await context.bot.send_message(update.effective_chat.id, 'Failed to generate images. Please try again later.')
+        except (BadRequest, NetworkError, TimedOut) as e:
+            print(f"[ERROR] Failed to send error message: {e}")
 
 # 处理按钮回调
 async def button_callback(update: Update, context: CallbackContext) -> None:
@@ -103,6 +128,12 @@ async def button_callback(update: Update, context: CallbackContext) -> None:
     await context.bot.send_photo(update.effective_chat.id,open(selectImPath,'rb'))
 async def custom_command_handler(update: Update, context: CallbackContext):
     user_info = f"User: {update.effective_user.username} ({update.effective_user.id})"
+    
+    # 检查 update.message 是否存在
+    if not update.message or not update.message.text:
+        print(f"[IGNORE] {user_info} sent message without text (may be edit/delete), ignoring")
+        return
+    
     text = update.message.text
     print(f"[MESSAGE] {user_info} sent: '{text}'")
 
@@ -114,11 +145,41 @@ async def custom_command_handler(update: Update, context: CallbackContext):
             await generate_images(update, context, command)  # 调用图像生成逻辑并传递解析后的文本
         else:
             print(f"[ERROR] {user_info} sent empty command")
-            await update.message.reply_text("Command is empty. Please provide text after '/'.")
+            try:
+                await update.message.reply_text("Command is empty. Please provide text after '/'.")
+            except (BadRequest, NetworkError, TimedOut) as e:
+                print(f"[ERROR] Failed to send error message: {e}")
     else:
         # 如果消息不以 "/" 开头，不做任何反应
         print(f"[IGNORE] {user_info} sent non-command message, ignoring")
         pass
+
+# 全局错误处理器
+async def error_handler(update: object, context: CallbackContext) -> None:
+    """处理所有未捕获的异常"""
+    error = context.error
+    print(f"[ERROR HANDLER] Exception while handling an update: {error}")
+    
+    # 记录不同类型的错误
+    if isinstance(error, BadRequest):
+        print(f"[ERROR] BadRequest: {error}")
+    elif isinstance(error, NetworkError):
+        print(f"[ERROR] NetworkError: {error}")
+    elif isinstance(error, TimedOut):
+        print(f"[ERROR] TimedOut: {error}")
+    else:
+        print(f"[ERROR] Unexpected error: {type(error).__name__}: {error}")
+    
+    # 尝试向用户发送错误消息（如果可能）
+    if update and isinstance(update, Update):
+        try:
+            if update.effective_chat:
+                await context.bot.send_message(
+                    chat_id=update.effective_chat.id,
+                    text="抱歉，处理您的请求时出现了错误。请稍后再试。"
+                )
+        except Exception as e:
+            print(f"[ERROR] Failed to send error message to user: {e}")
 
 # 主函数
 def main():
@@ -131,6 +192,9 @@ def main():
 
     # 禁用自动删除webhook
     application.updater.bootstrap_retries = 0
+
+    # 添加全局错误处理器
+    application.add_error_handler(error_handler)
 
     # 添加命令处理器
     application.add_handler(CommandHandler('start', start))

@@ -27,22 +27,66 @@ class SD3Client:
             "Content-Type": "application/json"
         }
 
-        async with session.post(image_url, json=payload, headers=headers) as response:
-            # 处理JSON响应
-            result = await response.json()
-            print("API Response:", str(result)[:100])
+        try:
+            async with session.post(image_url, json=payload, headers=headers, timeout=aiohttp.ClientTimeout(total=60)) as response:
+                # 检查 HTTP 状态码
+                if response.status != 200:
+                    print(f"[ERROR] API returned status {response.status}")
+                    error_text = await response.text()
+                    print(f"[ERROR] Error response: {error_text[:200]}")
+                    return None
+                
+                # 处理JSON响应
+                result = await response.json()
+                print("API Response:", str(result)[:100])
 
-            if result.get("success") and result.get("results"):
-                for model_result in result["results"]:
-                    if model_result.get("imageData"):
-                        b64_data = model_result["imageData"]
-                        image_data = base64.b64decode(b64_data)
-                        image_stream = io.BytesIO(image_data)
-                        image = Image.open(image_stream)
-                        water_mask = "SuperImageAI"
-                        return addWM.process(image, water_mask)
+                # 检查是否有错误信息
+                if "detail" in result:
+                    print(f"[ERROR] API returned error: {result['detail']}")
+                    return None
 
-            # 如果没有找到图片数据，返回None
+                if result.get("success") and result.get("results"):
+                    for model_result in result["results"]:
+                        try:
+                            image = None
+                            
+                            # 优先处理 base64 格式的图片数据
+                            if model_result.get("imageData"):
+                                b64_data = model_result["imageData"]
+                                image_data = base64.b64decode(b64_data)
+                                image_stream = io.BytesIO(image_data)
+                                image = Image.open(image_stream)
+                            
+                            # 如果返回的是 URL，则下载图片
+                            elif model_result.get("imageUrl") or model_result.get("url"):
+                                image_url = model_result.get("imageUrl") or model_result.get("url")
+                                print(f"[INFO] Downloading image from URL: {image_url}")
+                                
+                                async with session.get(image_url, timeout=aiohttp.ClientTimeout(total=30)) as img_response:
+                                    if img_response.status == 200:
+                                        image_data = await img_response.read()
+                                        image_stream = io.BytesIO(image_data)
+                                        image = Image.open(image_stream)
+                                    else:
+                                        print(f"[ERROR] Failed to download image, status: {img_response.status}")
+                                        continue
+                            
+                            if image:
+                                water_mask = "SuperImageAI"
+                                return addWM.process(image, water_mask)
+                                
+                        except Exception as e:
+                            print(f"[ERROR] Failed to process image: {e}")
+                            continue
+
+                # 如果没有找到图片数据，返回None
+                print("[WARNING] No image data found in API response")
+                return None
+        except asyncio.TimeoutError:
+            print(f"[ERROR] Request timeout for {image_url}")
+            return None
+        except Exception as e:
+            print(f"[ERROR] Exception in fetch_image: {type(e).__name__}: {e}")
             return None
 
     async def fetch_images(self, prompt):
